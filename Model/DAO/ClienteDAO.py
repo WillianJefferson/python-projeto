@@ -1,4 +1,4 @@
-from PyQt4.QtSql import QSqlQuery
+from PyQt5.QtSql import QSqlQuery
 from DataBase.ConexaoSQL import ConexaoSQL
 
 class ClienteDAO:

@@ -1,5 +1,5 @@
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtGui import *
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import *
 from Controller.VeiculoCTR import VeiculoCTR
 from View.FrmVeiculos import Ui_frmVeiculos
 
@@ -12,10 +12,10 @@ except AttributeError:
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class Ui_frmPesqVeiculos(object):
     def AlterarVeiculo_Click(self):
@@ -32,7 +32,7 @@ class Ui_frmPesqVeiculos(object):
         descricao = self.gridVeiculos.item(linha, 9).text()
         tipoVeiculo = self.gridVeiculos.item(linha, 10).text()
 
-        self.frmVeiculos = QtGui.QMainWindow()
+        self.frmVeiculos = QtWidgets.QMainWindow()
         self.ui = Ui_frmVeiculos()
         self.ui.setupUi(self.frmVeiculos, 'alterar', codigoVeic)
         self.ui.PreencherAlterar(modelo, marca, anoModelo, placa, alugado, batido, kmAtual, valorDiaria, descricao, tipoVeiculo)
@@ -47,13 +47,13 @@ class Ui_frmPesqVeiculos(object):
         veiculo = VeiculoCTR
         veiculo.ExcluirVeiculo(codigoVeic)
 
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Veículo Excluído!")
         #msg.setInformativeText("This is additional information")
         msg.setWindowTitle("Excluir Veículo")
         #msg.setDetailedText("The details are as follows:")
-        msg.setStandardButtons(QMessageBox.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
 
 
@@ -108,17 +108,17 @@ class Ui_frmPesqVeiculos(object):
         row = 0
         while query.next():
             self.gridVeiculos.insertRow(row)
-            codigoVeic = QTableWidgetItem(str(query.value(0)))
-            modelo = QTableWidgetItem(str(query.value(1)))
-            marca = QTableWidgetItem(str(query.value(2)))
-            anoModelo = QTableWidgetItem(str(query.value(3)))
-            placa = QTableWidgetItem(str(query.value(4)))
-            alugado = QTableWidgetItem(str(query.value(5)))
-            batido = QTableWidgetItem(str(query.value(6)))
-            kmAtual = QTableWidgetItem(str(query.value(7)))
-            valorDiaria = QTableWidgetItem(str(query.value(8)))
-            descricao = QTableWidgetItem(str(query.value(9)))
-            tipoVeiculo = QTableWidgetItem(str(query.value(10)))
+            codigoVeic = QtWidgets.QTableWidgetItem(str(query.value(0)))
+            modelo = QtWidgets.QTableWidgetItem(str(query.value(1)))
+            marca = QtWidgets.QTableWidgetItem(str(query.value(2)))
+            anoModelo = QtWidgets.QTableWidgetItem(str(query.value(3)))
+            placa = QtWidgets.QTableWidgetItem(str(query.value(4)))
+            alugado = QtWidgets.QTableWidgetItem(str(query.value(5)))
+            batido = QtWidgets.QTableWidgetItem(str(query.value(6)))
+            kmAtual = QtWidgets.QTableWidgetItem(str(query.value(7)))
+            valorDiaria = QtWidgets.QTableWidgetItem(str(query.value(8)))
+            descricao = QtWidgets.QTableWidgetItem(str(query.value(9)))
+            tipoVeiculo = QtWidgets.QTableWidgetItem(str(query.value(10)))
 
             self.gridVeiculos.setItem(row, 0, codigoVeic)
             self.gridVeiculos.setItem(row, 1, modelo)
@@ -141,43 +141,43 @@ class Ui_frmPesqVeiculos(object):
         frmPesqVeiculos.setFixedSize(820, 504)
 
         #GRID VEICULOS
-        self.gridVeiculos = QtGui.QTableWidget(frmPesqVeiculos)
+        self.gridVeiculos = QtWidgets.QTableWidget(frmPesqVeiculos)
         self.gridVeiculos.setGeometry(QtCore.QRect(10, 150, 800, 291))
         self.gridVeiculos.setObjectName(_fromUtf8("gridVeiculos"))
         self.gridVeiculos.setColumnCount(11)
         self.gridVeiculos.setRowCount(0)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(0, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(1, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(2, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(3, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(4, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(5, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(6, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(7, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(8, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(9, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridVeiculos.setHorizontalHeaderItem(10, item)
         #AJUSTANDO MODO DE SELEÇÃO - Uma linha por vez, desalitar editar
-        self.gridVeiculos.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.gridVeiculos.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        self.gridVeiculos.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.gridVeiculos.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.gridVeiculos.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.gridVeiculos.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
 
         #EDT PESQUISAR#########3
-        self.edtPesquisa = QtGui.QLineEdit(frmPesqVeiculos)
+        self.edtPesquisa = QtWidgets.QLineEdit(frmPesqVeiculos)
         self.edtPesquisa.setGeometry(QtCore.QRect(190, 60, 621, 20))
         self.edtPesquisa.setObjectName(_fromUtf8("edtPesquisa"))
-        self.cbPesquisa = QtGui.QComboBox(frmPesqVeiculos)
+        self.cbPesquisa = QtWidgets.QComboBox(frmPesqVeiculos)
         self.cbPesquisa.setGeometry(QtCore.QRect(20, 60, 161, 22))
         self.cbPesquisa.setObjectName(_fromUtf8("cbPesquisa"))
         self.cbPesquisa.addItem(_fromUtf8(""))
@@ -185,13 +185,13 @@ class Ui_frmPesqVeiculos(object):
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
-        self.label = QtGui.QLabel(frmPesqVeiculos)
+        self.label = QtWidgets.QLabel(frmPesqVeiculos)
         self.label.setGeometry(QtCore.QRect(20, 30, 271, 16))
         font = QtGui.QFont()
         font.setPointSize(10)
         self.label.setFont(font)
         self.label.setObjectName(_fromUtf8("label"))
-        self.btnPesquisar = QtGui.QPushButton(frmPesqVeiculos)
+        self.btnPesquisar = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnPesquisar.setGeometry(QtCore.QRect(700, 90, 111, 51))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/lupa.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -204,12 +204,12 @@ class Ui_frmPesqVeiculos(object):
         self.btnPesquisar.clicked.connect(lambda: self.PesquisarVeiculo(self.edtPesquisa.text(), self.cbPesquisa.currentText()))
 
 
-        self.lblTotal = QtGui.QLabel(frmPesqVeiculos)
+        self.lblTotal = QtWidgets.QLabel(frmPesqVeiculos)
         self.lblTotal.setGeometry(QtCore.QRect(20, 450, 111, 16))
         self.lblTotal.setObjectName(_fromUtf8("lblTotal"))
 
         #BTN EXCLUIR#####
-        self.btnExcluir = QtGui.QPushButton(frmPesqVeiculos)
+        self.btnExcluir = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnExcluir.setGeometry(QtCore.QRect(720, 450, 91, 51))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/excluir.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -220,7 +220,7 @@ class Ui_frmPesqVeiculos(object):
         self.btnExcluir.clicked.connect(lambda: self.ExcluirVeiculo_Click())
 
         #BTN ALTERAR
-        self.btnAlterar = QtGui.QPushButton(frmPesqVeiculos)
+        self.btnAlterar = QtWidgets.QPushButton(frmPesqVeiculos)
         self.btnAlterar.setGeometry(QtCore.QRect(610, 450, 101, 51))
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/edit.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)

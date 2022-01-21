@@ -1,4 +1,4 @@
-from PyQt4 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from View.FrmCliente import Ui_frmCliente
 from View.frmPesqCliente import Ui_frmPesqCliente
 from View.FrmVeiculos import Ui_frmVeiculos
@@ -15,50 +15,50 @@ except AttributeError:
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class Ui_FrmPrincipal(object):
     #BTN ALUGUEL.CLICK
     def FrmAluguel_Click(self):
-        self.frmAluguel = QtGui.QMainWindow()
+        self.frmAluguel = QtWidgets.QMainWindow()
         self.ui = Ui_FrmAluguel()
         self.ui.setupUi(self.frmAluguel)
         self.frmAluguel.show()
 
 	#BTNCLIENTE.CLICK
     def FrmCliente_Click(self):
-        self.frmCliente = QtGui.QMainWindow()
+        self.frmCliente = QtWidgets.QMainWindow()
         self.ui = Ui_frmCliente()
         self.ui.setupUi(self.frmCliente, 'inserir', 0)
         self.frmCliente.show()
 
     #BTNVEICULO.CLICK
     def FrmVeiculo_Click(self):
-        self.frmVeiculo = QtGui.QMainWindow()
+        self.frmVeiculo = QtWidgets.QMainWindow()
         self.ui = Ui_frmVeiculos()
         self.ui.setupUi(self.frmVeiculo, 'inserir', 0)
         self.frmVeiculo.show()
 
     #BTN LISTAR TODOS CLIENTES CLICK
     def btnListarCliente_Click(self):
-        self.frmPesqCliente = QtGui.QMainWindow()
+        self.frmPesqCliente = QtWidgets.QMainWindow()
         self.ui = Ui_frmPesqCliente()
         self.ui.setupUi(self.frmPesqCliente)
         self.frmPesqCliente.show()
 
     #BTN LISTAR TODOS VEICULOS CLICK
     def btnListarVeiculo_Click(self):
-        self.frmPesqVeiculo = QtGui.QMainWindow()
+        self.frmPesqVeiculo = QtWidgets.QMainWindow()
         self.ui = Ui_frmPesqVeiculos()
         self.ui.setupUi(self.frmPesqVeiculo)
         self.frmPesqVeiculo.show()
 
     #BTN LISTAR TODOS ALUGUEIS CLICK
     def btnListarAluguel_Click(self):
-        self.frmPesqAluguel = QtGui.QMainWindow()
+        self.frmPesqAluguel = QtWidgets.QMainWindow()
         self.ui = Ui_FrmPesqAluguel()
         self.ui.setupUi(self.frmPesqAluguel)
         self.frmPesqAluguel.show()
@@ -75,14 +75,14 @@ class Ui_FrmPrincipal(object):
         FrmPrincipal.setWindowIcon(icon)
         FrmPrincipal.setAutoFillBackground(True)
         FrmPrincipal.setIconSize(QtCore.QSize(40, 40))
-        self.centralwidget = QtGui.QWidget(FrmPrincipal)
+        self.centralwidget = QtWidgets.QWidget(FrmPrincipal)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
-        self.columnView = QtGui.QColumnView(self.centralwidget)
+        self.columnView = QtWidgets.QColumnView(self.centralwidget)
         self.columnView.setGeometry(QtCore.QRect(0, 0, 801, 101))
         self.columnView.setObjectName(_fromUtf8("columnView"))
 
         #BTN ALUGAR #############
-        self.btnAlugar = QtGui.QPushButton(self.centralwidget)
+        self.btnAlugar = QtWidgets.QPushButton(self.centralwidget)
         self.btnAlugar.setGeometry(QtCore.QRect(10, 10, 131, 81))
         self.btnAlugar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.btnAlugar.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -96,7 +96,7 @@ class Ui_FrmPrincipal(object):
         self.btnAlugar.clicked.connect(self.FrmAluguel_Click)
 
         #BTN CLIENTE ###################
-        self.btnCliente = QtGui.QPushButton(self.centralwidget)
+        self.btnCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnCliente.setGeometry(QtCore.QRect(140, 10, 131, 81))
         self.btnCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon2 = QtGui.QIcon()
@@ -108,7 +108,7 @@ class Ui_FrmPrincipal(object):
         self.btnCliente.clicked.connect(self.FrmCliente_Click)
 
         #BTN VEICULO #################
-        self.btnVeiculo = QtGui.QPushButton(self.centralwidget)
+        self.btnVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnVeiculo.setGeometry(QtCore.QRect(270, 10, 131, 81))
         self.btnVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon3 = QtGui.QIcon()
@@ -120,7 +120,7 @@ class Ui_FrmPrincipal(object):
         self.btnVeiculo.clicked.connect(self.FrmVeiculo_Click)
 
         #BTN LISTAR CLIENTE #####################
-        self.btnListCliente = QtGui.QPushButton(self.centralwidget)
+        self.btnListCliente = QtWidgets.QPushButton(self.centralwidget)
         self.btnListCliente.setGeometry(QtCore.QRect(400, 10, 131, 81))
         self.btnListCliente.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon4 = QtGui.QIcon()
@@ -133,7 +133,7 @@ class Ui_FrmPrincipal(object):
         self.btnListCliente.clicked.connect(self.btnListarCliente_Click)
 
         #BTN LISTAR VEICULO ################
-        self.btnListVeiculo = QtGui.QPushButton(self.centralwidget)
+        self.btnListVeiculo = QtWidgets.QPushButton(self.centralwidget)
         self.btnListVeiculo.setGeometry(QtCore.QRect(530, 10, 131, 81))
         self.btnListVeiculo.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon5 = QtGui.QIcon()
@@ -145,7 +145,7 @@ class Ui_FrmPrincipal(object):
         self.btnListVeiculo.clicked.connect(self.btnListarVeiculo_Click)
 
         #BTN LISTAR ALUGUEL
-        self.btnListAluguel = QtGui.QPushButton(self.centralwidget)
+        self.btnListAluguel = QtWidgets.QPushButton(self.centralwidget)
         self.btnListAluguel.setGeometry(QtCore.QRect(660, 10, 131, 81))
         self.btnListAluguel.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon6 = QtGui.QIcon()
@@ -156,28 +156,28 @@ class Ui_FrmPrincipal(object):
         #BTN LISTAR ALUGUEL CLICK #
         self.btnListAluguel.clicked.connect(self.btnListarAluguel_Click)
 
-        self.lbImg = QtGui.QLabel(self.centralwidget)
+        self.lbImg = QtWidgets.QLabel(self.centralwidget)
         self.lbImg.setGeometry(QtCore.QRect(10, 110, 781, 301))
         self.lbImg.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.lbImg.setFrameShape(QtGui.QFrame.WinPanel)
+        self.lbImg.setFrameShape(QtWidgets.QFrame.WinPanel)
         self.lbImg.setText(_fromUtf8(""))
         self.lbImg.setPixmap(QtGui.QPixmap(_fromUtf8("Imagens/BGImg.png")))
         self.lbImg.setAlignment(QtCore.Qt.AlignJustify|QtCore.Qt.AlignVCenter)
         self.lbImg.setObjectName(_fromUtf8("lbImg"))
         FrmPrincipal.setCentralWidget(self.centralwidget)
-        self.actionCliente = QtGui.QAction(FrmPrincipal)
+        self.actionCliente = QtWidgets.QAction(FrmPrincipal)
         self.actionCliente.setObjectName(_fromUtf8("actionCliente"))
-        self.actionVe_culo = QtGui.QAction(FrmPrincipal)
+        self.actionVe_culo = QtWidgets.QAction(FrmPrincipal)
         self.actionVe_culo.setObjectName(_fromUtf8("actionVe_culo"))
-        self.actionAlugar = QtGui.QAction(FrmPrincipal)
+        self.actionAlugar = QtWidgets.QAction(FrmPrincipal)
         self.actionAlugar.setObjectName(_fromUtf8("actionAlugar"))
-        self.actionCliente_2 = QtGui.QAction(FrmPrincipal)
+        self.actionCliente_2 = QtWidgets.QAction(FrmPrincipal)
         self.actionCliente_2.setObjectName(_fromUtf8("actionCliente_2"))
-        self.actionVe_culos = QtGui.QAction(FrmPrincipal)
+        self.actionVe_culos = QtWidgets.QAction(FrmPrincipal)
         self.actionVe_culos.setObjectName(_fromUtf8("actionVe_culos"))
-        self.actionAlugueis = QtGui.QAction(FrmPrincipal)
+        self.actionAlugueis = QtWidgets.QAction(FrmPrincipal)
         self.actionAlugueis.setObjectName(_fromUtf8("actionAlugueis"))
-        self.actionSair = QtGui.QAction(FrmPrincipal)
+        self.actionSair = QtWidgets.QAction(FrmPrincipal)
         self.actionSair.setObjectName(_fromUtf8("actionSair"))
 
         self.retranslateUi(FrmPrincipal)

@@ -1,4 +1,4 @@
-from PyQt4.QtSql import QSqlDatabase
+from PyQt5.QtSql import QSqlDatabase
 
 class ConexaoSQL:
     def getConexao():

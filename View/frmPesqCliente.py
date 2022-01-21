@@ -1,5 +1,5 @@
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtGui import *
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import *
 from Controller.ClienteCTR import ClienteCTR
 from View.FrmCliente import Ui_frmCliente
 
@@ -12,10 +12,10 @@ except AttributeError:
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class Ui_frmPesqCliente(object):
     def AlterarCliente_Click(self):
@@ -27,7 +27,7 @@ class Ui_frmPesqCliente(object):
         email = self.gridCliente.item(linha, 4).text()
         telefone = self.gridCliente.item(linha, 5).text()
 
-        self.frmCliente = QtGui.QMainWindow()
+        self.frmCliente = QtWidgets.QMainWindow()
         self.ui = Ui_frmCliente()
         self.ui.setupUi(self.frmCliente, 'alterar', codigoCli)
         self.ui.PreencherAlterar(nome, cpf, endereco, email, telefone)
@@ -42,13 +42,13 @@ class Ui_frmPesqCliente(object):
         cliente = ClienteCTR
         cliente.ExcluirCliente(codigoCli)
 
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
         msg.setText("Cliente Excluído!")
         #msg.setInformativeText("This is additional information")
         msg.setWindowTitle("Excluir Cliente")
         #msg.setDetailedText("The details are as follows:")
-        msg.setStandardButtons(QMessageBox.Ok)
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
         msg.exec_()
 
 
@@ -93,12 +93,12 @@ class Ui_frmPesqCliente(object):
         row = 0
         while query.next():
             self.gridCliente.insertRow(row)
-            codCli = QTableWidgetItem(str(query.value(0)))
-            nome = QTableWidgetItem(str(query.value(1)))
-            cpf = QTableWidgetItem(str(query.value(2)))
-            endereco = QTableWidgetItem(str(query.value(3)))
-            email = QTableWidgetItem(str(query.value(4)))
-            telefone = QTableWidgetItem(str(query.value(5)))
+            codCli = QtWidgets.QTableWidgetItem(str(query.value(0)))
+            nome = QtWidgets.QTableWidgetItem(str(query.value(1)))
+            cpf = QtWidgets.QTableWidgetItem(str(query.value(2)))
+            endereco = QtWidgets.QTableWidgetItem(str(query.value(3)))
+            email = QtWidgets.QTableWidgetItem(str(query.value(4)))
+            telefone = QtWidgets.QTableWidgetItem(str(query.value(5)))
 
             self.gridCliente.setItem(row, 0, codCli)
             self.gridCliente.setItem(row, 1, nome)
@@ -118,39 +118,39 @@ class Ui_frmPesqCliente(object):
         frmPesqCliente.setFixedSize(651, 504)
 
         #GRID CLIENTE######
-        self.gridCliente = QtGui.QTableWidget(frmPesqCliente)
+        self.gridCliente = QtWidgets.QTableWidget(frmPesqCliente)
         self.gridCliente.setGeometry(QtCore.QRect(20, 150, 621, 291))
         self.gridCliente.setObjectName(_fromUtf8("gridCliente"))
         self.gridCliente.setColumnCount(6)
         self.gridCliente.setRowCount(0)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(0, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(1, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(2, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(3, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(4, item)
-        item = QtGui.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem()
         self.gridCliente.setHorizontalHeaderItem(5, item)
         #AJUSTANDO MODO DE SELEÇÃO - Uma linha por vez, desalitar editar
-        self.gridCliente.setSelectionBehavior(QAbstractItemView.SelectRows)
-        self.gridCliente.setEditTriggers(QtGui.QAbstractItemView.NoEditTriggers)
-        self.gridCliente.setSelectionMode(QtGui.QAbstractItemView.SingleSelection)
+        self.gridCliente.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.gridCliente.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.gridCliente.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)
 
         #EDT PESQUISAR#########3
-        self.edtPesquisa = QtGui.QLineEdit(frmPesqCliente)
+        self.edtPesquisa = QtWidgets.QLineEdit(frmPesqCliente)
         self.edtPesquisa.setGeometry(QtCore.QRect(190, 60, 451, 20))
         self.edtPesquisa.setObjectName(_fromUtf8("edtPesquisa"))
-        self.cbPesquisa = QtGui.QComboBox(frmPesqCliente)
+        self.cbPesquisa = QtWidgets.QComboBox(frmPesqCliente)
         self.cbPesquisa.setGeometry(QtCore.QRect(20, 60, 161, 22))
         self.cbPesquisa.setObjectName(_fromUtf8("cbPesquisa"))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
-        self.label = QtGui.QLabel(frmPesqCliente)
+        self.label = QtWidgets.QLabel(frmPesqCliente)
         self.label.setGeometry(QtCore.QRect(20, 30, 271, 16))
         font = QtGui.QFont()
         font.setPointSize(10)
@@ -158,7 +158,7 @@ class Ui_frmPesqCliente(object):
         self.label.setObjectName(_fromUtf8("label"))
 
         #BTN PESQUISAR #########
-        self.btnPesquisar = QtGui.QPushButton(frmPesqCliente)
+        self.btnPesquisar = QtWidgets.QPushButton(frmPesqCliente)
         self.btnPesquisar.setGeometry(QtCore.QRect(530, 92, 111, 51))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/lupa.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -168,12 +168,12 @@ class Ui_frmPesqCliente(object):
         #BTN PESQUISAR CLICK #
         self.btnPesquisar.clicked.connect(lambda: self.PesquisarCliente(self.edtPesquisa.text(), self.cbPesquisa.currentText()))
 
-        self.lblTotal = QtGui.QLabel(frmPesqCliente)
+        self.lblTotal = QtWidgets.QLabel(frmPesqCliente)
         self.lblTotal.setGeometry(QtCore.QRect(20, 450, 111, 16))
         self.lblTotal.setObjectName(_fromUtf8("lblTotal"))
 
         #BTN EXCLUIR
-        self.btnExcluir = QtGui.QPushButton(frmPesqCliente)
+        self.btnExcluir = QtWidgets.QPushButton(frmPesqCliente)
         self.btnExcluir.setGeometry(QtCore.QRect(554, 450, 91, 51))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/excluir.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -184,7 +184,7 @@ class Ui_frmPesqCliente(object):
         self.btnExcluir.clicked.connect(lambda: self.ExcluirCliente_Click())
 
         #BTN ALTERAR##########
-        self.btnAlterar = QtGui.QPushButton(frmPesqCliente)
+        self.btnAlterar = QtWidgets.QPushButton(frmPesqCliente)
         self.btnAlterar.setGeometry(QtCore.QRect(450, 450, 101, 51))
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/edit.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)

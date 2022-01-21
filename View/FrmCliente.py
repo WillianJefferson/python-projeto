@@ -1,5 +1,5 @@
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtGui import *
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import *
 from Controller.ClienteCTR import ClienteCTR
 
 try:
@@ -11,10 +11,10 @@ except AttributeError:
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+        return QtWidgets.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
-        return QtGui.QApplication.translate(context, text, disambig)
+        return QtWidgets.QApplication.translate(context, text, disambig)
 
 class Ui_frmCliente(object):
     #PREENCHER OS CAMPOS PARA ALTERAÇÃO
@@ -38,22 +38,22 @@ class Ui_frmCliente(object):
             cliente = ClienteCTR
             cliente.CadastrarCliente(nome, cpf, endereco, email, telefone)
 
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
             msg.setText("Cliente inserido com sucesso!")
             msg.setWindowTitle("Inserir Cliente")
-            msg.setStandardButtons(QMessageBox.Ok)
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
 
         if estado=='alterar':
             cliente = ClienteCTR
             cliente.AtualizarCliente(codigoCli, nome, cpf, endereco, email, telefone)
 
-            msg = QMessageBox()
+            msg = QtWidgets.QMessageBox()
             msg.setIcon(QMessageBox.Information)
             msg.setText("Cliente alterado com sucesso!")
             msg.setWindowTitle("Alterar Cliente")
-            msg.setStandardButtons(QMessageBox.Ok)
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
             msg.exec_()
 
         self.edtNome.setText('')
@@ -70,45 +70,45 @@ class Ui_frmCliente(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/btnCadCli.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         frmCliente.setWindowIcon(icon)
-        self.groupBox = QtGui.QGroupBox(frmCliente)
+        self.groupBox = QtWidgets.QGroupBox(frmCliente)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 511, 161))
         self.groupBox.setTitle(_fromUtf8(""))
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
-        self.label = QtGui.QLabel(self.groupBox)
+        self.label = QtWidgets.QLabel(self.groupBox)
         self.label.setGeometry(QtCore.QRect(10, 10, 46, 13))
         self.label.setObjectName(_fromUtf8("label"))
-        self.label_2 = QtGui.QLabel(self.groupBox)
+        self.label_2 = QtWidgets.QLabel(self.groupBox)
         self.label_2.setGeometry(QtCore.QRect(340, 10, 46, 13))
         self.label_2.setObjectName(_fromUtf8("label_2"))
-        self.lbEndereco = QtGui.QLabel(self.groupBox)
+        self.lbEndereco = QtWidgets.QLabel(self.groupBox)
         self.lbEndereco.setGeometry(QtCore.QRect(10, 110, 51, 16))
         self.lbEndereco.setObjectName(_fromUtf8("lbEndereco"))
-        self.lbEmail = QtGui.QLabel(self.groupBox)
+        self.lbEmail = QtWidgets.QLabel(self.groupBox)
         self.lbEmail.setGeometry(QtCore.QRect(10, 60, 46, 13))
         self.lbEmail.setObjectName(_fromUtf8("lbEmail"))
-        self.label_5 = QtGui.QLabel(self.groupBox)
+        self.label_5 = QtWidgets.QLabel(self.groupBox)
         self.label_5.setGeometry(QtCore.QRect(340, 60, 46, 13))
         self.label_5.setObjectName(_fromUtf8("label_5"))
-        self.edtNome = QtGui.QLineEdit(self.groupBox)
+        self.edtNome = QtWidgets.QLineEdit(self.groupBox)
         self.edtNome.setGeometry(QtCore.QRect(10, 30, 321, 20))
         self.edtNome.setObjectName(_fromUtf8("edtNome"))
-        self.edtCPF = QtGui.QLineEdit(self.groupBox)
+        self.edtCPF = QtWidgets.QLineEdit(self.groupBox)
         self.edtCPF.setGeometry(QtCore.QRect(340, 30, 161, 20))
         self.edtCPF.setObjectName(_fromUtf8("edtCPF"))
-        self.edtEmail = QtGui.QLineEdit(self.groupBox)
+        self.edtEmail = QtWidgets.QLineEdit(self.groupBox)
         self.edtEmail.setGeometry(QtCore.QRect(10, 80, 321, 20))
         self.edtEmail.setObjectName(_fromUtf8("edtEmail"))
-        self.edtTelefone = QtGui.QLineEdit(self.groupBox)
+        self.edtTelefone = QtWidgets.QLineEdit(self.groupBox)
         self.edtTelefone.setGeometry(QtCore.QRect(340, 80, 161, 20))
         self.edtTelefone.setObjectName(_fromUtf8("edtTelefone"))
-        self.edtEndereco = QtGui.QLineEdit(self.groupBox)
+        self.edtEndereco = QtWidgets.QLineEdit(self.groupBox)
         self.edtEndereco.setGeometry(QtCore.QRect(10, 130, 491, 20))
         self.edtEndereco.setObjectName(_fromUtf8("edtEndereco"))
-        self.groupBox_2 = QtGui.QGroupBox(frmCliente)
+        self.groupBox_2 = QtWidgets.QGroupBox(frmCliente)
         self.groupBox_2.setGeometry(QtCore.QRect(10, 180, 511, 81))
         self.groupBox_2.setTitle(_fromUtf8(""))
         self.groupBox_2.setObjectName(_fromUtf8("groupBox_2"))
-        self.btnSalvar = QtGui.QPushButton(self.groupBox_2)
+        self.btnSalvar = QtWidgets.QPushButton(self.groupBox_2)
         self.btnSalvar.setGeometry(QtCore.QRect(400, 10, 101, 61))
         self.btnSalvar.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()

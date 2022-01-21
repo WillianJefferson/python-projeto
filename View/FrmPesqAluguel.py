@@ -1,5 +1,5 @@
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtGui import *
+from PyQt5 import QtCore, QtGui
+from PyQt5.QtGui import *
 from Controller.AluguelCTR import AluguelCTR
 
 try:
@@ -114,25 +114,25 @@ class Ui_FrmPesqAluguel(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/btnListAluguel.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         FrmPesqAluguel.setWindowIcon(icon)
-        self.groupBox = QtGui.QGroupBox(FrmPesqAluguel)
+        self.groupBox = QtWidgets.QGroupBox(FrmPesqAluguel)
         self.groupBox.setGeometry(QtCore.QRect(10, 0, 501, 71))
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
-        self.cbPesquisa = QtGui.QComboBox(self.groupBox)
+        self.cbPesquisa = QtWidgets.QComboBox(self.groupBox)
         self.cbPesquisa.setGeometry(QtCore.QRect(10, 40, 161, 22))
-        self.cbPesquisa.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.cbPesquisa.setCursor(QtWidgets.QCursor(QtCore.Qt.PointingHandCursor))
         self.cbPesquisa.setObjectName(_fromUtf8("cbPesquisa"))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
         self.cbPesquisa.addItem(_fromUtf8(""))
-        self.edtPesquisa = QtGui.QLineEdit(self.groupBox)
+        self.edtPesquisa = QtWidgets.QLineEdit(self.groupBox)
         self.edtPesquisa.setGeometry(QtCore.QRect(180, 40, 221, 20))
         self.edtPesquisa.setObjectName(_fromUtf8("edtPesquisa"))
 
         #BTN PESQUISA
-        self.btnPesquisa = QtGui.QPushButton(self.groupBox)
+        self.btnPesquisa = QtWidgets.QPushButton(self.groupBox)
         self.btnPesquisa.setGeometry(QtCore.QRect(404, 10, 91, 51))
-        self.btnPesquisa.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btnPesquisa.setCursor(QtWidgets.QCursor(QtCore.Qt.PointingHandCursor))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(_fromUtf8("Imagens/lupa.png")), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnPesquisa.setIcon(icon1)
@@ -141,7 +141,7 @@ class Ui_FrmPesqAluguel(object):
         #BTN PESQUISAR CLICK #
         self.btnPesquisa.clicked.connect(lambda: self.PesquisarAluguel(self.edtPesquisa.text(), self.cbPesquisa.currentText()))
 
-        self.gridAluguel = QtGui.QTableWidget(FrmPesqAluguel)
+        self.gridAluguel = QtWidgets.QTableWidget(FrmPesqAluguel)
         self.gridAluguel.setGeometry(QtCore.QRect(10, 80, 501, 192))
         self.gridAluguel.setObjectName(_fromUtf8("gridAluguel"))
         self.gridAluguel.setColumnCount(9)
